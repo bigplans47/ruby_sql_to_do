@@ -1,6 +1,7 @@
 require("rspec")
 require("pg")
 require("task")
+# require("rails")
 
 DB = PG.connect({:dbname => 'to_do_test'})
 
@@ -47,8 +48,6 @@ describe(Task) do
       expect(test_task.list_id()).to(eq(1))
     end
   end
-
-
 
   describe("#==") do
     it("is the same task if it has the same description") do

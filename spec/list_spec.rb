@@ -1,6 +1,7 @@
 require('rspec')
 require('pg')
 require('list')
+require('pry')
 
 DB = PG.connect({:dbname => 'to_do_test'})
 
@@ -48,7 +49,27 @@ describe(List) do
     end
   end
 
+  describe(".find") do
+    it("returns a list by its ID") do
+      test_list = List.new({:name => "Epicodus Stuff", :id => nil})
+      test_list.save()
+      test_list2 = List.new({:name => "Home Stuff", :id => nil})
+      test_list2.save()
+      # binding.pry
+      expect(List.find(test_list2.id())).to(eq(test_list2))
+    end
+  end
 
-
+  describe("#tasks") do
+    it("returns an array of tasks for that list") do
+      test_list = List.new({:name => "Epicodus stuff", :id => nil})
+      test_list.save()
+      test_task = Task.new({:description => "Learn SQL", :list_id => test_list.id()})
+      test_task.save()
+      test_task2 = Task.new({:description => "Review Ruby", :list_id => test_list.id()})
+      test_task2.save()
+      expect(test_list.tasks()).to(eq([test_task, test_task2]))
+    end
+  end
 
 end

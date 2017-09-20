@@ -1,5 +1,4 @@
 class Task
-
   attr_reader(:description, :list_id)
 
   def initialize(attributes)
