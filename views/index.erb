@@ -1,22 +1,18 @@
-<!-- <h1>Welcome to the To Do App</h1>
 
-<div class="container">
-  <a href="/lists">View All Lists</a>
-  <a href="/lists/new">Add New List</a>
-</div> -->
 
 <h1>To Do</h1>
 
 <p>Create a new list:</p>
 
-<form action="/lists" method="post">
+<!-- <form action="/lists" method="post"> -->
+<form action="/" method="post">
   <label for="name1">Assign a name to your list:</label>
   <input id="name" name="name1" type="text">
 
   <button type="submit">Add list</button>
 </form>
 
-<p> Add tasks to any list:</p>
+<!-- <p> Add tasks to any list:</p> -->
 
 <% if @list.any? %>
 <form action="/tasks" method="post">
@@ -28,10 +24,10 @@
   </select>
 <% end %>
 
-  <label for="description">Description of the task:</label>
+  <!-- <label for="description">Description of the task:</label>
   <input id="description" name="description" type="text">
 
-  <button type="submit">Add task</button>
+  <button type="submit">Add task</button> -->
 </form>
 
 
@@ -39,7 +35,7 @@
   <p>Click on a list to see its tasks:</p>
 
   <ul>
-    <% @lists.each do |list| %>
+    <% @list.each do |list| %>
     <li><a href="/lists/<%= list.id() %>"><%= list.name() %></a></li>
     <% end %>
   </ul>
