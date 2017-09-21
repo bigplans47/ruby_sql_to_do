@@ -11,7 +11,7 @@ describe('adding a new list', {:type => :feature}) do
     # click_link('Add New List')
     fill_in('name1', :with => 'Epicodus Work')
     click_button('Add list')
-    expect(page).to have_content('Here are your lists:')
+    expect(page).to have_content('Click on a list to see its tasks:')
   end
 end
 
@@ -33,7 +33,7 @@ describe('seeing details for a single list', {:type => :feature}) do
     test_task.save()
     visit('/lists')
     click_link(test_list.name())
-    expect(page).to_have_content(test_task.description())
+    expect(page).to have_content(test_task.description())
   end
 end
 
