@@ -13,10 +13,10 @@ get("/") do
 end
 
 post("/") do
-  @list = List.all()
   name1 = params.fetch("name1")
   list_object = List.new({:name => name1, :id => nil})
   list_object.save
+  @list = List.all()
   erb(:index)
 end
 
