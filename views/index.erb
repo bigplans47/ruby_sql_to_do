@@ -18,6 +18,7 @@
 
 <p> Add tasks to any list:</p>
 
+<% if @list.any? %>
 <form action="/tasks" method="post">
   <label for="list_id">Select a List</label>
   <select id='list_id' name='list_id' type='text'>
@@ -25,6 +26,7 @@
       <option value="<%= list.id()%>"> <%= list.name() %> </option>
     <% end %>
   </select>
+<% end %>
 
   <label for="description">Description of the task:</label>
   <input id="description" name="description" type="text">
@@ -33,14 +35,14 @@
 </form>
 
 
-<% if @lists.any?() %>
-<p>Click on a list to see its tasks:</p>
+<% if @list.any?() %>
+  <p>Click on a list to see its tasks:</p>
 
-<ul>
-  <% @lists.each do |list| %>
-  <li><a href="/lists/<%= list.id() %>"><%= list.name() %></a></li>
-  <% end %>
-</ul>
-<% else %>
-<p>There are no lists yet!</p>
+  <ul>
+    <% @lists.each do |list| %>
+    <li><a href="/lists/<%= list.id() %>"><%= list.name() %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>There are no lists yet!</p>
 <% end %>
