@@ -19,24 +19,24 @@ post("/") do
   @list = List.all()
   erb(:index)
 end
+# nah-dude
+# get("/lists/new") do
+#   erb(:list_form)
+# end
+# nah-dude
+# post("/lists") do
+#   name = params.fetch("name")
+#   list = List.new({:name => name, :id => nil})
+#   list.save()
+#   erb(:list_success)
+# end
+# maybe-dude
+# get('/lists') do
+#   @lists = List.all()
+#   erb(:lists)
+# end
 
-get("/lists/new") do
-  erb(:list_form)
-end
-
-post("/lists") do
-  name = params.fetch("name")
-  list = List.new({:name => name, :id => nil})
-  list.save()
-  erb(:list_success)
-end
-
-get('/lists') do
-  @lists = List.all()
-  erb(:lists)
-end
-
-get("lists/:id") do
+get("/list/:id") do
   @list = List.find(params.fetch("id").to_i())
   erb(:list)
 end

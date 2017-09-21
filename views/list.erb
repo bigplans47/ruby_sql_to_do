@@ -13,10 +13,6 @@
     <p>There are no tasks on this list!</p>
   <% end %>
 
-<div class="container">
-  <a href="/"><button class="btn">Home</a>
-</div>
-
 <h3>Add a task to <%= @list.name() %> </h3>
 
 <form action="/tasks" method="post">
@@ -35,4 +31,8 @@
   <a href="/lists">View All Lists</a>
   <a href="/lists/new">Add New List</a>
   <a href="/lists/new">Add New Task</a>
+</div>
+
+<div class="container">
+  <a href="/"><button class="btn">Home</a>
 </div>
